@@ -3,6 +3,8 @@
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ListingControler;
+use App\Http\Controllers\ListingController;
 
 
 /*
@@ -15,18 +17,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// All Listings
+Route::get('/', [ListingController::class, 'index']);
 
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest listings',
-        'listings' => Listing::all()
-    ]);
-});
+//Single isting
 
-//Single listing
-
-Route::get('/listings/{id}', function ($id) {
-    return view('listing', [
-        'listing' => Listing::find($id)
-    ]);
-});
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
