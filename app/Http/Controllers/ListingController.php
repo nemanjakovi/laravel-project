@@ -37,7 +37,7 @@ class ListingController extends Controller
 
         $formFields = $request->validate([
             'title' => 'required',
-            'company' => 'required', Rule::unique('listings', 'company'),
+            'company' => ['required', Rule::unique('listings', 'company')],
             'location' => 'required',
             'website' => 'required',
             'email' => ['required', 'email'],
@@ -46,6 +46,6 @@ class ListingController extends Controller
         ]);
 
         Listing::create($formFields);
-        return redirect('/');
+        return redirect('/')->with('message', 'Listing create successfuly!');
     }
 }

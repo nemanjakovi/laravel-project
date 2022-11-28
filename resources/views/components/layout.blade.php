@@ -12,6 +12,7 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         />
+        <script src="//unpkg.com/alpinejs" defer></script>
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
@@ -59,7 +60,9 @@ class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg
     class="absolute top-1/3 right-10 bg-black text-white py-2 px-5"
     >Post Job</a
 >
+
 </footer>
+<x-flash-message />
 </body>
 </html>
 </body>
