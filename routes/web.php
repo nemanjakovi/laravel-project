@@ -21,7 +21,15 @@ use App\Http\Controllers\ListingController;
 Route::get('/', [ListingController::class, 'index']);
 //Show Create Form
 Route::get('/listings/create', [ListingController::class, 'create']);
-//Single Listing
-Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
 //Store Listing Data
 Route::POST('/listings', [ListingController::class, 'store']);
+//Show Edit Form 
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+// Update Listing
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
+
+
+//Single Listing
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
