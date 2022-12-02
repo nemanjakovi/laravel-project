@@ -3,7 +3,7 @@
 
     <header class="text-center">
         <h2 class="text-2xl font-bold uppercase mb-1">
-            Register
+            Login
         </h2>
         <p class="mb-4">Log into account to post gigs</p>
     </header>
