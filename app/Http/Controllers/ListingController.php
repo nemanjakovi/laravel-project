@@ -32,6 +32,7 @@ class ListingController extends Controller
         return view('listings.create');
     }
 
+
     public function store(Request $request)
     {
         $formFields = $request->validate([
@@ -47,9 +48,17 @@ class ListingController extends Controller
         if ($request->hasFile('logo')) {
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
+
+
+        $formFields['user_id'] = auth()->id();
+        // dd($formFields);
+
+
         Listing::create($formFields);
         return redirect('/')->with('message', 'Listing create successfuly!');
     }
+
+
 
     public function edit(Listing $listing)
     {
